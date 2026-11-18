@@ -1466,3 +1466,12 @@ footer p {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .fade-in, .fade-in-left, .fade-in-right { opacity: 1 !important; transform: none !important; }
 }
+
+/* Liens entre pages */
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 0.9rem; margin-bottom: 0.9rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.footer-nav a { color: rgba(255,255,255,0.65); }
+.footer-nav a:hover, .footer-nav a[aria-current="page"] { color: var(--gold); }
+.support-ctas { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.8rem; }
+.support-merch { color: var(--black) !important; border-color: var(--black) !important; }
+.support-merch:hover { background: var(--black) !important; color: var(--gold) !important; }
+@media (min-width: 1061px) and (max-width: 1240px) { .nav-links { gap: 1.4rem; } .nav-links a { font-size: 0.68rem; letter-spacing: 0.12em; } }
