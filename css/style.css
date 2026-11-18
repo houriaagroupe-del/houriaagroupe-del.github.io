@@ -1225,3 +1225,43 @@ footer p {
 .date-item--highlight .date-venue { color: var(--black); font-weight: 600; }
 .date-item--highlight .date-sub { color: var(--gold-dark); font-weight: 500; }
 .dates-past .date-item--highlight { opacity: 0.9; }
+
+/* Single en vedette */
+.featured-single {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 860px;
+  margin-bottom: 2rem;
+  padding: 1.6rem 2rem;
+  border: 1px solid rgba(201, 150, 63, 0.35);
+  background: linear-gradient(135deg, rgba(201,150,63,0.10), rgba(255,255,255,0.02));
+}
+.featured-single h3 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 0.7rem;
+  line-height: 1.1;
+}
+.featured-single-feat { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
+.featured-single iframe { display: block; border-radius: 12px; }
+@media (max-width: 700px) {
+  .featured-single { grid-template-columns: 1fr; gap: 1rem; padding: 1.2rem; }
+}
+
+/* Ordre v3 : Bio (blanc) → Musique (noir) → Mini-doc (noir) */
+.youtube-section::before { display: none; }
+.music-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--white), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+.youtube-section { border-top: 1px solid rgba(201, 150, 63, 0.12); }
+.singles-grid { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
