@@ -1452,3 +1452,17 @@ footer p {
   .nav-links.open { display: flex; }
   .nav-links a { font-size: 1.1rem; letter-spacing: 0.2em; }
 }
+
+/* ===== Performance (fluidité au scroll) =====
+   - plus de flou d'arrière-plan sur la barre fixe (recalculé à chaque image)
+   - reflets dorés : 2 passages puis arrêt, au lieu d'une animation infinie
+   - texture de grain SVG retirée (coûteuse à peindre, quasi invisible à 3 %) */
+.navbar { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(10, 10, 10, 0.97); }
+.gold, .hero-subtitle { animation-iteration-count: 2; }
+.nav-logo { animation: none; background-position: 30% center; }
+.youtube-section::after, .music-section::after, .gallery-section::after, .contact-section::after { background-image: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .fade-in, .fade-in-left, .fade-in-right { opacity: 1 !important; transform: none !important; }
+}
