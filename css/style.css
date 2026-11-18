@@ -1118,3 +1118,97 @@ footer p {
 @media (max-width: 400px) {
   .gallery-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ===== V2 ADDITIONS ===== */
+/* Tracklist complète */
+.track-list--full { gap: 0.25rem; counter-reset: none; padding: 0; }
+.track-list--full .track-item { padding: 0.5rem 0.9rem; }
+.track-dur {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  font-variant-numeric: tabular-nums;
+}
+.album-card { max-width: 860px; }
+
+/* Lecteur Spotify */
+.spotify-embed { max-width: 860px; margin-top: 1.5rem; }
+.spotify-embed iframe { display: block; border-radius: 12px; }
+
+/* Singles */
+.singles-title {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--white);
+  margin: 3rem 0 1rem;
+  letter-spacing: 0.05em;
+}
+.singles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 860px;
+}
+.single-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgba(201, 150, 63, 0.18);
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.single-card:hover {
+  border-color: var(--gold);
+  background: rgba(201, 150, 63, 0.08);
+  transform: translateY(-2px);
+}
+.single-year { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold); }
+.single-name { font-family: var(--font-title); font-size: 1.35rem; font-weight: 600; color: var(--white); }
+.single-feat { font-size: 0.72rem; color: rgba(255,255,255,0.45); }
+
+/* Concerts */
+.date-year {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--gold-dark);
+}
+.dates-empty {
+  max-width: 680px;
+  padding: 1.6rem 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #222;
+}
+.dates-empty a {
+  color: var(--gold-dark);
+  border-bottom: 1px solid rgba(139, 105, 20, 0.4);
+}
+.dates-empty a:hover { color: var(--gold); }
+.dates-past { max-width: 680px; margin-top: 2.5rem; }
+.dates-past summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #777;
+  padding: 0.6rem 0;
+}
+.dates-past summary::-webkit-details-marker { display: none; }
+.dates-past summary::after { content: ' +'; color: var(--gold); }
+.dates-past[open] summary::after { content: ' –'; }
+.dates-past .date-item { opacity: 0.55; padding: 0.9rem 0; }
+.dates-past .date-label { font-size: 1.2rem; }
+
+@media (max-width: 700px) {
+  .singles-grid { grid-template-columns: 1fr; }
+}
