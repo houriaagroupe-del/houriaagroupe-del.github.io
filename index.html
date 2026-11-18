@@ -57,7 +57,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="stylesheet" href="css/style.css?v=9" />
 </head>
 <body>
 
@@ -70,6 +70,7 @@
       <li><a href="#live" onclick="closeMenu()">Live</a></li>
       <li><a href="#galerie" onclick="closeMenu()">Galerie</a></li>
       <li><a href="#videos" onclick="closeMenu()">Vidéos</a></li>
+      <li><a href="#soutenir" onclick="closeMenu()">Soutenir</a></li>
       <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
@@ -90,6 +91,7 @@
           Écouter
         </a>
         <a href="#live" class="btn btn-outline">Concerts</a>
+        <a href="#soutenir" class="btn btn-outline">Soutenir l'album</a>
       </div>
     </div>
     <div class="hero-scroll-hint">
@@ -132,7 +134,7 @@
           </div>
         </div>
         <div class="bio-img-wrap fade-in-right">
-          <img src="images/portraits/portrait_bleu.jpg" alt="Portrait de Houriaa sur fond bleu" />
+          <img src="images/portraits/portrait_4.jpg" alt="Portrait de Houriaa" />
         </div>
       </div>
 
@@ -147,12 +149,17 @@
 
       <div class="highlights fade-in">
         <h3 class="sub-title">Moments forts</h3>
+        <div class="highlights-wrap">
         <ul class="highlights-list">
           <li><span class="hl-year">2022</span><span class="hl-name">Album <em>Noir Sur Blanc</em></span></li>
           <li><span class="hl-year">2022</span><span class="hl-name">Lauréate du tremplin de Muret</span></li>
           <li><span class="hl-year">2024</span><span class="hl-name">Zénith de Cahors<small>1<sup>re</sup> partie de Martin Solveig, L.E.J et Cali</small></span></li>
           <li><span class="hl-year">2026</span><span class="hl-name">Zénith de Toulouse<small>1<sup>re</sup> partie de Bigflo &amp; Oli</small></span></li>
         </ul>
+        <figure class="highlights-poster">
+          <img src="images/affiche_zenith.jpg" alt="Affiche : Houriaa au Zénith Toulouse Métropole, La Capsule, 15 novembre" loading="lazy" />
+        </figure>
+        </div>
       </div>
 
       <div class="press fade-in">
@@ -295,20 +302,33 @@
     </div>
   </section>
 
+  <!-- ===== SOUTENIR / CAGNOTTE ===== -->
+  <section class="section support-section" id="soutenir">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">Soutenir le prochain album</h2>
+      <div class="section-rule fade-in"></div>
+      <p class="support-intro fade-in">
+        Houriaa prépare son prochain album en indépendant. La cagnotte, portée par l'association WIN'AS sur HelloAsso,
+        finance l'enregistrement, les arrangements, les musiciens, le mixage et la promotion.
+        Chaque participation compte, et des contreparties sont prévues (remerciements, albums dédicacés, tee-shirts, écoute privée).
+      </p>
+      <div class="support-widget fade-in">
+        <iframe id="haWidget" title="Cagnotte HelloAsso : aidez Houriaa à donner vie à son nouvel album"
+          src="https://www.helloasso.com/associations/win-as/formulaires/2/widget"
+          allowtransparency="true" scrolling="auto" loading="lazy"></iframe>
+      </div>
+      <p class="support-fallback fade-in">Le formulaire ne s'affiche pas&nbsp;? <a href="https://www.helloasso.com/associations/win-as/formulaires/2" target="_blank" rel="noopener">Ouvrir la cagnotte sur HelloAsso</a></p>
+    </div>
+  </section>
+
   <!-- ===== MINI-DOCUMENTAIRE ===== -->
   <section class="section youtube-section" id="video">
     <div class="section-inner">
       <h2 class="section-title fade-in">MINI-DOCUMENTAIRE</h2>
       <div class="section-rule fade-in"></div>
       <p class="youtube-desc fade-in">Plongez dans l'univers de Houriaa</p>
-      <div class="youtube-wrapper fade-in">
-        <iframe
-          src="https://www.youtube.com/embed/O5jvzJrGyfI" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"
-          title="Houriaa - Mini-documentaire"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+      <div class="minidoc-video fade-in">
+        <video src="videos/web/teaser_v3.mp4" poster="images/posters/teaser_v3.jpg" controls preload="none" playsinline></video>
       </div>
     </div>
   </section>
@@ -428,52 +448,64 @@
       <h2 class="section-title fade-in">Galerie</h2>
       <div class="section-rule fade-in"></div>
       <div class="gallery-grid fade-in">
-        <div class="gallery-item gallery-item--portrait" data-index="0">
-          <img src="images/portraits/portrait_4.jpg" alt="Houriaa — portrait studio (1)" loading="lazy" decoding="async" />
+        <div class="gallery-item" data-index="0">
+          <img src="images/zenith/zenith_2.jpg" alt="Houriaa au Zénith de Toulouse" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
-        <div class="gallery-item" data-index="1">
-          <img src="images/photo_scene_1.jpg" alt="Houriaa — sur scène (2)" loading="lazy" decoding="async" />
+        <div class="gallery-item gallery-item--portrait" data-index="1">
+          <img src="images/portraits/portrait_bleu.jpg" alt="Houriaa portrait studio" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
-        <div class="gallery-item gallery-item--portrait" data-index="2">
-          <img src="images/portraits/portrait_2.jpg" alt="Houriaa — portrait studio (3)" loading="lazy" decoding="async" />
+        <div class="gallery-item" data-index="2">
+          <img src="images/zenith/zenith_1.jpg" alt="Houriaa au Zénith de Toulouse" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
         <div class="gallery-item" data-index="3">
-          <img src="images/photo_scene_3.jpg" alt="Houriaa — sur scène (4)" loading="lazy" decoding="async" />
+          <img src="images/mixcite/mixcite_3.jpg" alt="Houriaa au festival Mix'cité" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
         <div class="gallery-item gallery-item--portrait" data-index="4">
-          <img src="images/portraits/portrait_3.jpg" alt="Houriaa — portrait studio (5)" loading="lazy" decoding="async" />
+          <img src="images/portraits/portrait_2.jpg" alt="Houriaa portrait studio" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
         <div class="gallery-item" data-index="5">
-          <img src="images/photo_scene_2.jpg" alt="Houriaa — sur scène (6)" loading="lazy" decoding="async" />
+          <img src="images/zenith/zenith_4.jpg" alt="Houriaa au Zénith de Toulouse" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
-        <div class="gallery-item gallery-item--portrait" data-index="6">
-          <img src="images/portraits/portrait_1.jpg" alt="Houriaa — portrait studio (7)" loading="lazy" decoding="async" />
+        <div class="gallery-item" data-index="6">
+          <img src="images/photo_scene_1.jpg" alt="Houriaa sur scène" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
-        <div class="gallery-item" data-index="7">
-          <img src="images/photo_scene_5.jpg" alt="Houriaa — sur scène (8)" loading="lazy" decoding="async" />
+        <div class="gallery-item gallery-item--portrait" data-index="7">
+          <img src="images/portraits/portrait_3.jpg" alt="Houriaa portrait studio" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
-        <div class="gallery-item gallery-item--portrait" data-index="8">
-          <img src="images/portraits/portrait_5.jpg" alt="Houriaa — portrait studio (9)" loading="lazy" decoding="async" />
+        <div class="gallery-item" data-index="8">
+          <img src="images/mixcite/mixcite_2.jpg" alt="Houriaa au festival Mix'cité" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
         <div class="gallery-item" data-index="9">
-          <img src="images/photo_scene_4.jpg" alt="Houriaa — sur scène (10)" loading="lazy" decoding="async" />
+          <img src="images/zenith/zenith_3.jpg" alt="Houriaa au Zénith de Toulouse" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
-        <div class="gallery-item" data-index="10">
-          <img src="images/photo_scene_7.jpg" alt="Houriaa — sur scène (11)" loading="lazy" decoding="async" />
+        <div class="gallery-item gallery-item--portrait" data-index="10">
+          <img src="images/portraits/portrait_1.jpg" alt="Houriaa portrait studio" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
         <div class="gallery-item" data-index="11">
-          <img src="images/photo_scene_6.jpg" alt="Houriaa — sur scène (12)" loading="lazy" decoding="async" />
+          <img src="images/photo_scene_2.jpg" alt="Houriaa sur scène" loading="lazy" decoding="async" />
+          <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+        </div>
+        <div class="gallery-item" data-index="12">
+          <img src="images/mixcite/mixcite_1.jpg" alt="Houriaa avec les musiciens au festival Mix'cité" loading="lazy" decoding="async" />
+          <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+        </div>
+        <div class="gallery-item gallery-item--portrait" data-index="13">
+          <img src="images/portraits/portrait_5.jpg" alt="Houriaa portrait studio" loading="lazy" decoding="async" />
+          <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+        </div>
+        <div class="gallery-item" data-index="14">
+          <img src="images/zenith/zenith_6.jpg" alt="Houriaa au Zénith de Toulouse" loading="lazy" decoding="async" />
           <div class="gallery-overlay"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
         </div>
       </div>
@@ -507,6 +539,29 @@
         </div>
       </div>
 
+      <!-- Lives verticaux -->
+      <div class="verticals fade-in">
+        <h3 class="videos-sub-title">En live</h3>
+        <div class="verticals-grid">
+          <div class="vertical-card">
+            <div class="vertical-frame"><video src="videos/web/mixcite_live_1.mp4" poster="images/posters/mixcite_live_1.jpg" controls preload="none" playsinline></video></div>
+            <p class="vertical-label">Festival Mix'cité<span>27.09.2026 · Bellefontaine</span></p>
+          </div>
+          <div class="vertical-card">
+            <div class="vertical-frame"><video src="videos/web/mixcite_live_2.mp4" poster="images/posters/mixcite_live_2.jpg" controls preload="none" playsinline></video></div>
+            <p class="vertical-label">Festival Mix'cité<span>27.09.2026 · Bellefontaine</span></p>
+          </div>
+          <div class="vertical-card">
+            <div class="vertical-frame"><video src="videos/web/mixcite_foule.mp4" poster="images/posters/mixcite_foule.jpg" controls preload="none" playsinline></video></div>
+            <p class="vertical-label">Festival Mix'cité — le public<span>27.09.2026 · Bellefontaine</span></p>
+          </div>
+          <div class="vertical-card">
+            <div class="vertical-frame"><video src="videos/web/live_plein_air.mp4" poster="images/posters/live_plein_air.jpg" controls preload="none" playsinline></video></div>
+            <p class="vertical-label">Live en plein air<span></span></p>
+          </div>
+        </div>
+      </div>
+
       <!-- Clip officiel -->
       <div class="clip-featured fade-in">
         <div class="clip-head">
@@ -518,22 +573,6 @@
             loading="lazy" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-      </div>
-
-      <!-- Teaser en vedette -->
-      <div class="video-featured fade-in">
-        <video
-          class="video-featured-player"
-          src="videos/web/teaser_v3.mp4" poster="images/posters/teaser_v3.jpg"
-          controls
-          preload="none"
-          playsinline
-        ></video>
-        <div class="video-featured-info">
-          <span class="video-badge">Exclusif</span>
-          <h3 class="video-featured-title">TEASER</h3>
-          <p class="video-featured-desc">Mini-documentaire</p>
         </div>
       </div>
 
