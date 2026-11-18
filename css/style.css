@@ -1212,3 +1212,16 @@ footer p {
 @media (max-width: 700px) {
   .singles-grid { grid-template-columns: 1fr; }
 }
+
+.date-sub {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: #777;
+}
+.date-item--highlight .date-venue { color: var(--black); font-weight: 600; }
+.date-item--highlight .date-sub { color: var(--gold-dark); font-weight: 500; }
+.dates-past .date-item--highlight { opacity: 0.9; }
