@@ -1361,3 +1361,29 @@ footer p {
   .highlights-list { grid-template-columns: repeat(2, 1fr); }
   .press-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== V5 : résidence (vertical), galerie mixte ===== */
+.residence-featured {
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.residence-video {
+  aspect-ratio: 9 / 16;
+  background: #000;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+  border: 1px solid rgba(201,150,63,0.35);
+}
+.residence-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.residence-info .video-featured-title { margin-top: 0.8rem; color: var(--black); }
+.residence-date { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dark); margin: 0.3rem 0 1rem; }
+.residence-text { max-width: 420px; color: #444; line-height: 1.8; }
+.gallery-item--portrait img { object-position: center 22%; }
+@media (max-width: 700px) {
+  .residence-featured { grid-template-columns: 1fr; gap: 1.2rem; }
+  .residence-video { max-width: 320px; margin: 0 auto; width: 100%; }
+}
+
+.clip-head .video-featured-title { color: var(--black); }
