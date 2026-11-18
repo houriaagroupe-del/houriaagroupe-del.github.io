@@ -152,3 +152,44 @@
 .swatch.soldout { opacity: 0.35; position: relative; }
 .add-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .merch-page [hidden] { display: none !important; }
+
+/* ===== Personnalisation boutique (~15 %) =====
+   écru au lieu du blanc, coutures dorées en pointillés, signature manuscrite,
+   bandeau défilant, nom en filigrane derrière le titre */
+.merch-page { --ecru: #f4eee4; --stitch: rgba(201,150,63,0.55); }
+.merch-page .shop-light { background: var(--ecru); }
+.merch-page .faq details { border-bottom-color: rgba(139,105,20,0.18); }
+
+.shop-hero { position: relative; overflow: hidden; }
+.shop-ghost {
+  position: absolute; left: -2vw; bottom: -4vw; z-index: 0; pointer-events: none;
+  font-family: var(--font-title); font-weight: 700; font-size: 22vw; line-height: 1; letter-spacing: 0.04em;
+  color: transparent; -webkit-text-stroke: 1px rgba(201,150,63,0.10);
+}
+.shop-hero-inner { position: relative; z-index: 1; }
+.shop-script {
+  display: inline-block; margin-top: 0.2em;
+  font-family: 'Mrs Saint Delafield', 'Brush Script MT', cursive; font-weight: 400;
+  font-size: 1.25em; line-height: 1; color: var(--gold-light); transform: rotate(-3deg);
+}
+
+/* Coutures */
+.shop-hero-img, .product-main, .soon-card { outline: 1px dashed var(--stitch); outline-offset: -10px; }
+.product-badge { border: 1px dashed var(--gold); }
+.merch-page .btn-primary { box-shadow: inset 0 0 0 2px var(--gold), inset 0 0 0 3px rgba(10,10,10,0.35); }
+.cart-head { border-bottom: 1px dashed var(--stitch); }
+.size, .qty { border-style: dashed; }
+.size.active { border-style: solid; }
+
+/* Bandeau défilant (animation transform, légère pour le navigateur) */
+.ticker { background: var(--gold); color: var(--black); overflow: hidden; border-top: 1px solid #8B6914; border-bottom: 1px solid #8B6914; }
+.ticker-track { display: flex; width: max-content; animation: ticker 32s linear infinite; }
+.ticker span { padding: 0.65rem 1.6rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; white-space: nowrap; }
+.ticker span::after { content: '✦'; margin-left: 3.2rem; font-size: 0.6rem; opacity: 0.6; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Prix duo en tampon */
+.shop-duo { position: relative; padding: 0.5rem 0.9rem; border: 1px dashed var(--gold); transform: rotate(-2deg); }
+
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+@media (max-width: 900px) { .shop-ghost { font-size: 34vw; bottom: auto; top: 90px; } }
