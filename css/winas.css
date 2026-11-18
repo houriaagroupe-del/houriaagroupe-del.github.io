@@ -1,0 +1,89 @@
+/* ===== Page Win'As ===== */
+.winas-page footer a { color: var(--gold); }
+.nav-back { color: var(--gold) !important; }
+
+.wa-hero {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding: 110px 5vw 60px;
+  background: radial-gradient(ellipse at 30% 50%, rgba(201,150,63,0.12), transparent 60%), var(--black);
+}
+.wa-hero-inner {
+  max-width: 1140px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: minmax(260px, 440px) 1fr; gap: 4rem; align-items: center;
+}
+.wa-logo { width: 100%; border-radius: 50%; box-shadow: 0 0 80px rgba(201,150,63,0.18); }
+.wa-kicker { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.wa-title {
+  font-family: var(--font-title); font-weight: 300; font-size: clamp(3.5rem, 9vw, 7.5rem);
+  letter-spacing: 0.06em; line-height: 0.95; color: var(--white); margin-bottom: 1.2rem;
+}
+.wa-tagline { font-family: var(--font-title); font-style: italic; font-size: clamp(1.3rem, 2.4vw, 1.8rem); color: rgba(255,255,255,0.85); margin-bottom: 2.4rem; max-width: 520px; }
+.wa-buttons, .wa-buttons-left { justify-content: flex-start; }
+
+.wa-light { background: var(--white); color: var(--black); }
+.wa-light .section-title { color: var(--black); }
+.wa-dark { background: var(--black); color: var(--white); border-top: 1px solid rgba(201,150,63,0.12); }
+.wa-dark .section-title { color: var(--white); }
+
+.wa-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+.wa-text p { line-height: 1.85; color: #333; margin-bottom: 1.1rem; }
+.wa-figure { margin: 0; position: relative; }
+.wa-figure img { width: 100%; display: block; }
+.wa-figure figcaption, .wa-g figcaption {
+  position: absolute; left: 0; bottom: 0; padding: 0.5rem 0.9rem;
+  background: rgba(10,10,10,0.75); color: var(--gold);
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+}
+
+.wa-quote {
+  font-family: var(--font-title); font-style: italic; font-weight: 300;
+  font-size: clamp(1.7rem, 4vw, 3rem); text-align: center; color: var(--gold-light);
+  max-width: 900px; margin: 0 auto 3rem;
+}
+.wa-mission { max-width: 800px; margin: 0 auto 3rem; }
+.wa-mission p { color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 1rem; }
+.wa-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+.wa-card { border: 1px solid rgba(201,150,63,0.25); padding: 1.4rem; background: rgba(255,255,255,0.02); }
+.wa-card-k { display: block; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+.wa-card-v { font-family: var(--font-title); font-size: 1.25rem; line-height: 1.35; color: var(--white); }
+.wa-values { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.wa-values li { border: 1px solid var(--gold); color: var(--gold); padding: 0.45rem 1rem; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; }
+
+.wa-offers { display: grid; grid-template-columns: 1.3fr repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.wa-offer { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.5rem; background: var(--gray-light); border-left: 2px solid var(--gold); }
+.wa-offer--main { background: var(--black); color: var(--white); }
+.wa-offer-name { font-family: var(--font-title); font-size: 1.3rem; font-weight: 600; }
+.wa-offer-price { font-family: var(--font-title); font-size: 2.2rem; color: var(--gold-dark); line-height: 1; }
+.wa-offer--main .wa-offer-price { color: var(--gold); }
+.wa-offer-sub { font-size: 0.75rem; color: #777; }
+.wa-offer--main .wa-offer-sub { color: rgba(255,255,255,0.6); }
+
+.wa-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.wa-g { margin: 0; position: relative; height: 300px; overflow: hidden; }
+.wa-g--wide { grid-column: span 2; }
+.wa-g img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.wa-g:hover img { transform: scale(1.04); }
+
+.wa-btn-dark { color: var(--black) !important; border-color: var(--black) !important; }
+.wa-btn-dark:hover { background: var(--black) !important; color: var(--gold) !important; }
+
+.wa-contact p { font-size: 1rem; margin-bottom: 0.9rem; color: rgba(255,255,255,0.85); }
+.wa-contact a { color: var(--gold); }
+.wa-contact-k { display: inline-block; min-width: 110px; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+
+@media (max-width: 900px) {
+  .wa-hero-inner, .wa-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .wa-logo { max-width: 300px; }
+  .wa-cards { grid-template-columns: 1fr; }
+  .wa-offers { grid-template-columns: 1fr 1fr; }
+  .wa-gallery { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .wa-offers, .wa-gallery { grid-template-columns: 1fr; }
+  .wa-g--wide { grid-column: auto; }
+  .wa-g { height: 240px; }
+}
+
+.winas-page .contact-section::before { display: none; }
