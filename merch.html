@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merch officiel — HOURIAA · Collection Noir sur Blanc</title>
+  <meta name="description" content="Tee-shirts brodés HOURIAA, collection Noir sur Blanc : 100% coton épais, coupe oversize unisexe. Précommande en ligne." />
+  <!-- Page en test : retirer la ligne suivante au lancement officiel -->
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://houriaagroupe-del.github.io/merch.html" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="HOURIAA" />
+  <meta property="og:title" content="Merch HOURIAA — Collection Noir sur Blanc" />
+  <meta property="og:description" content="Tee-shirts brodés ton sur ton, 100% coton épais, coupe oversize unisexe. 30 € · 2 pour 50 €." />
+  <meta property="og:url" content="https://houriaagroupe-del.github.io/merch.html" />
+  <meta property="og:image" content="https://houriaagroupe-del.github.io/images/merch/collection.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Tee-shirt HOURIAA « Noir sur Blanc »",
+    "brand": { "@type": "Brand", "name": "HOURIAA" },
+    "description": "Tee-shirt brodé : portrait minimaliste devant, HOURIAA et « Noir sur blanc » au dos. 100% coton épais 280–300 g/m², coupe oversize unisexe.",
+    "image": ["https://houriaagroupe-del.github.io/images/merch/tee_noir.jpg","https://houriaagroupe-del.github.io/images/merch/tee_ecru.jpg","https://houriaagroupe-del.github.io/images/merch/tee_blanc.jpg","https://houriaagroupe-del.github.io/images/merch/tee_prune.jpg"],
+    "offers": { "@type": "Offer", "price": "30.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder", "url": "https://houriaagroupe-del.github.io/merch.html" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=12" />
+  <link rel="stylesheet" href="css/merch.css?v=1" />
+</head>
+<body class="merch-page">
+
+  <div class="shop-testbar">Boutique en test · les précommandes sont transmises par e-mail, le paiement en ligne arrive bientôt</div>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">HOURIAA</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#produit" onclick="closeMenu()">Tee-shirt</a></li>
+      <li><a href="#a-venir" onclick="closeMenu()">À venir</a></li>
+      <li><a href="#infos" onclick="closeMenu()">Infos &amp; conditions</a></li>
+      <li><a href="index.html" class="nav-back">← Houriaa</a></li>
+    </ul>
+    <button class="cart-btn" id="cartBtn" aria-label="Ouvrir le panier">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="shop-hero">
+    <div class="shop-hero-inner">
+      <div class="shop-hero-text fade-in">
+        <p class="shop-kicker">Merch officiel</p>
+        <h1 class="shop-title">Collection<br /><span class="gold">Noir sur Blanc</span></h1>
+        <p class="shop-lead">Tee-shirts brodés ton sur ton&nbsp;: le portrait de Houriaa devant, son nom et «&nbsp;Noir sur blanc&nbsp;» au dos. 100&nbsp;% coton épais, coupe oversize unisexe.</p>
+        <div class="shop-prices">
+          <div><span class="shop-price">30&nbsp;€</span><span class="shop-price-sub">le tee-shirt</span></div>
+          <div class="shop-duo"><span class="shop-price">50&nbsp;€</span><span class="shop-price-sub">les 2 · offre duo</span></div>
+        </div>
+        <a href="#produit" class="btn btn-primary">Choisir mon tee-shirt</a>
+      </div>
+      <img class="shop-hero-img fade-in" src="images/merch/collection.jpg" alt="Les quatre coloris du tee-shirt HOURIAA : noir, écru, blanc et prune, vus de face et de dos" />
+    </div>
+  </header>
+
+  <!-- ===== PRODUIT ===== -->
+  <section class="section shop-light" id="produit">
+    <div class="section-inner product">
+      <div class="product-gallery fade-in-left">
+        <div class="product-main"><img id="productImg" src="images/merch/tee_noir.jpg" alt="Tee-shirt HOURIAA noir, face et dos" /></div>
+        <div class="product-thumbs" id="productThumbs">
+          <button data-img="images/merch/tee_noir.jpg" class="active" aria-label="Voir le noir"><img src="images/merch/tee_noir.jpg" alt="" /></button>
+          <button data-img="images/merch/tee_ecru.jpg" aria-label="Voir l'écru"><img src="images/merch/tee_ecru.jpg" alt="" /></button>
+          <button data-img="images/merch/tee_blanc.jpg" aria-label="Voir le blanc"><img src="images/merch/tee_blanc.jpg" alt="" /></button>
+          <button data-img="images/merch/tee_prune.jpg" aria-label="Voir le prune"><img src="images/merch/tee_prune.jpg" alt="" /></button>
+          <button data-img="images/merch/detail_broderie.jpg" aria-label="Voir le détail de la broderie"><img src="images/merch/detail_broderie.jpg" alt="" /></button>
+        </div>
+      </div>
+
+      <div class="product-info fade-in-right">
+        <span class="product-badge">Précommande</span>
+        <h2 class="product-name">Tee-shirt «&nbsp;Noir sur Blanc&nbsp;»</h2>
+        <p class="product-price"><span>30&nbsp;€</span> <small>· 2 tee-shirts = 50&nbsp;€</small></p>
+
+        <p class="opt-label">Couleur&nbsp;: <strong id="colorName">Noir</strong></p>
+        <div class="swatches" id="swatches">
+          <button class="swatch active" data-color="Noir" data-img="images/merch/tee_noir.jpg" style="--c:#111" aria-label="Noir"></button>
+          <button class="swatch" data-color="Écru" data-img="images/merch/tee_ecru.jpg" style="--c:#e3cdb4" aria-label="Écru"></button>
+          <button class="swatch" data-color="Blanc" data-img="images/merch/tee_blanc.jpg" style="--c:#f6f6f4" aria-label="Blanc"></button>
+          <button class="swatch" data-color="Prune" data-img="images/merch/tee_prune.jpg" style="--c:#3a1c33" aria-label="Prune"></button>
+        </div>
+
+        <p class="opt-label">Taille&nbsp;: <strong id="sizeName">—</strong></p>
+        <div class="sizes" id="sizes">
+          <button class="size" data-size="S">S</button>
+          <button class="size" data-size="M">M</button>
+          <button class="size" data-size="L">L</button>
+        </div>
+        <p class="size-note">Coupe oversize unisexe, épaules tombantes.</p>
+
+        <div class="add-row">
+          <div class="qty" aria-label="Quantité">
+            <button id="qtyMinus" aria-label="Moins">−</button>
+            <span id="qtyVal">1</span>
+            <button id="qtyPlus" aria-label="Plus">+</button>
+          </div>
+          <button class="btn btn-primary add-btn" id="addBtn">Ajouter au panier</button>
+        </div>
+        <p class="add-msg" id="addMsg" role="status"></p>
+
+        <ul class="product-details">
+          <li><strong>Devant</strong> portrait minimaliste brodé ton sur ton</li>
+          <li><strong>Dos</strong> «&nbsp;HOURIAA&nbsp;» et «&nbsp;Noir sur blanc&nbsp;» brodés</li>
+          <li><strong>Matière</strong> 100&nbsp;% coton épais, 280–300&nbsp;g/m²</li>
+          <li><strong>Coupe</strong> oversize, unisexe, finitions premium</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== À VENIR ===== -->
+  <section class="section shop-dark" id="a-venir">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">À venir</h2>
+      <div class="section-rule fade-in"></div>
+      <div class="soon-grid">
+        <figure class="soon-card soon-card--wide fade-in">
+          <img src="images/merch/edition_ete.jpg" alt="Édition été : six coloris, lin, sauge, bleu ciel, abricot, blanc cassé et framboise" loading="lazy" />
+          <figcaption><span class="soon-tag">Bientôt</span><strong>Édition été</strong> Lin · Sauge · Bleu ciel · Abricot · Blanc cassé · Framboise</figcaption>
+        </figure>
+        <figure class="soon-card fade-in">
+          <img src="images/merch/portrait_rouge.jpg" alt="Tee-shirt blanc, portrait entier brodé en rouge au dos" loading="lazy" />
+          <figcaption><span class="soon-tag">En préparation</span><strong>Édition Portrait</strong> Portrait entier brodé au dos</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INFOS & CONDITIONS ===== -->
+  <section class="section shop-light" id="infos">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">Infos &amp; conditions</h2>
+      <div class="section-rule fade-in"></div>
+      <div class="faq fade-in">
+        <details open><summary>Comment se passe la commande&nbsp;?</summary>
+          <p>Ajoutez vos tee-shirts au panier, choisissez le mode de remise et envoyez votre précommande. Vous recevez ensuite un e-mail de confirmation avec les modalités de paiement. Le paiement en ligne sécurisé sera bientôt disponible directement sur cette page.</p></details>
+        <details><summary>Retrait et livraison</summary>
+          <p>Retrait gratuit à Toulouse ou remise en main propre lors d'un concert. L'envoi postal est possible&nbsp;: les frais vous sont indiqués par e-mail avant paiement.</p></details>
+        <details><summary>L'offre duo</summary>
+          <p>Deux tee-shirts achetés ensemble&nbsp;: 50&nbsp;€ au lieu de 60&nbsp;€. La réduction s'applique automatiquement dans le panier, par paire.</p></details>
+        <details><summary>Échange et rétractation</summary>
+          <p>Pour un achat à distance, vous disposez de 14 jours après réception pour changer d'avis. Un échange de taille est possible selon les stocks&nbsp;: écrivez-nous.</p></details>
+        <details><summary>Contact</summary>
+          <p><a href="mailto:Houria.laamimi@gmail.com">Houria.laamimi@gmail.com</a> · <a href="tel:+33652335320">06 52 33 53 20</a></p></details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year">2026</span> <a href="index.html">HOURIAA</a> &mdash; Merch officiel</p>
+  </footer>
+
+  <!-- ===== PANIER ===== -->
+  <div class="cart-overlay" id="cartOverlay" hidden></div>
+  <aside class="cart" id="cart" aria-label="Panier" aria-hidden="true">
+    <div class="cart-head">
+      <h3>Panier</h3>
+      <button class="cart-close" id="cartClose" aria-label="Fermer">&times;</button>
+    </div>
+
+    <div class="cart-body" id="cartBody">
+      <ul class="cart-items" id="cartItems"></ul>
+      <p class="cart-empty" id="cartEmpty">Votre panier est vide.</p>
+
+      <div class="cart-totals" id="cartTotals">
+        <p><span>Sous-total</span><span id="tSub">0 €</span></p>
+        <p class="t-duo" id="tDuoRow"><span>Offre duo</span><span id="tDuo">0 €</span></p>
+        <p class="t-total"><span>Total</span><span id="tTotal">0 €</span></p>
+      </div>
+
+      <form class="checkout" id="checkout" novalidate>
+        <p class="opt-label">Remise</p>
+        <label class="radio"><input type="radio" name="delivery" value="Retrait à Toulouse" checked /> Retrait à Toulouse (gratuit)</label>
+        <label class="radio"><input type="radio" name="delivery" value="Remise lors d'un concert" /> Lors d'un concert (gratuit)</label>
+        <label class="radio"><input type="radio" name="delivery" value="Envoi postal" /> Envoi postal (frais indiqués par e-mail)</label>
+        <div class="addr" id="addrBlock" hidden>
+          <input name="address" placeholder="Adresse postale complète" autocomplete="street-address" />
+        </div>
+        <input name="name" placeholder="Prénom et nom" autocomplete="name" required />
+        <input name="email" type="email" placeholder="E-mail" autocomplete="email" required />
+        <input name="phone" type="tel" placeholder="Téléphone (facultatif)" autocomplete="tel" />
+        <textarea name="note" rows="2" placeholder="Message (facultatif)"></textarea>
+        <p class="form-err" id="formErr" role="alert"></p>
+        <button type="submit" class="btn btn-primary checkout-btn" id="checkoutBtn">Envoyer ma précommande</button>
+        <p class="checkout-note" id="checkoutNote">Rien n'est débité maintenant&nbsp;: vous recevrez les modalités de paiement par e-mail.</p>
+      </form>
+    </div>
+
+    <div class="cart-done" id="cartDone" hidden>
+      <h3>Précommande prête</h3>
+      <p>Votre messagerie s'ouvre avec le récapitulatif&nbsp;: il ne reste qu'à l'envoyer. Si rien ne s'ouvre, copiez le récapitulatif et envoyez-le à <a href="mailto:Houria.laamimi@gmail.com">Houria.laamimi@gmail.com</a>.</p>
+      <pre class="recap" id="recap"></pre>
+      <div class="done-actions">
+        <button class="btn btn-outline" id="copyRecap">Copier le récapitulatif</button>
+        <a class="btn btn-primary" id="mailAgain" href="#">Ouvrir l'e-mail</a>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    /* ================= CONFIGURATION BOUTIQUE =================
+       price / duoPrice : prix en euros
+       paymentUrl : à remplir quand le paiement en ligne est prêt
+         (lien HelloAsso Boutique de Win'As, ou Stripe Payment Link).
+         Vide = mode précommande par e-mail. */
+    const SHOP = {
+      email: 'Houria.laamimi@gmail.com',
+      price: 30,
+      duoPrice: 50,
+      paymentUrl: ''
+    };
+
+    /* ---------- menu ---------- */
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    function closeMenu() { navLinks.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', false); document.body.style.overflow = ''; }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => io.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- fiche produit ---------- */
+    const productImg = document.getElementById('productImg');
+    const thumbs = [...document.querySelectorAll('#productThumbs button')];
+    const swatches = [...document.querySelectorAll('.swatch')];
+    const sizes = [...document.querySelectorAll('.size')];
+    let sel = { color: 'Noir', size: null, qty: 1 };
+
+    function showImg(src) {
+      productImg.src = src;
+      thumbs.forEach(t => t.classList.toggle('active', t.dataset.img === src));
+    }
+    thumbs.forEach(t => t.addEventListener('click', () => showImg(t.dataset.img)));
+    swatches.forEach(s => s.addEventListener('click', () => {
+      swatches.forEach(x => x.classList.remove('active')); s.classList.add('active');
+      sel.color = s.dataset.color; document.getElementById('colorName').textContent = sel.color;
+      showImg(s.dataset.img);
+    }));
+    sizes.forEach(s => s.addEventListener('click', () => {
+      sizes.forEach(x => x.classList.remove('active')); s.classList.add('active');
+      sel.size = s.dataset.size; document.getElementById('sizeName').textContent = sel.size;
+      document.getElementById('addMsg').textContent = '';
+    }));
+    const qtyVal = document.getElementById('qtyVal');
+    document.getElementById('qtyMinus').onclick = () => { sel.qty = Math.max(1, sel.qty - 1); qtyVal.textContent = sel.qty; };
+    document.getElementById('qtyPlus').onclick = () => { sel.qty = Math.min(10, sel.qty + 1); qtyVal.textContent = sel.qty; };
+
+    /* ---------- panier ---------- */
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem('houriaa_cart') || '[]'); } catch (e) { cart = []; }
+    const save = () => { try { localStorage.setItem('houriaa_cart', JSON.stringify(cart)); } catch (e) {} };
+    const eur = n => n.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' €';
+    const count = () => cart.reduce((a, i) => a + i.qty, 0);
+    function totals() {
+      const n = count(), sub = n * SHOP.price;
+      const total = Math.floor(n / 2) * SHOP.duoPrice + (n % 2) * SHOP.price;
+      return { n, sub, duo: sub - total, total };
+    }
+
+    function render() {
+      const list = document.getElementById('cartItems');
+      list.innerHTML = '';
+      cart.forEach((it, idx) => {
+        const li = document.createElement('li');
+        li.className = 'cart-item';
+        li.innerHTML = `<img src="${it.img}" alt="" />
+          <div class="ci-info"><strong>Tee-shirt Noir sur Blanc</strong><span>${it.color} · ${it.size}</span>
+            <div class="qty qty-sm"><button data-a="-" aria-label="Moins">−</button><span>${it.qty}</span><button data-a="+" aria-label="Plus">+</button></div></div>
+          <div class="ci-right"><span>${eur(it.qty * SHOP.price)}</span><button class="ci-del" aria-label="Retirer">Retirer</button></div>`;
+        li.querySelector('[data-a="-"]').onclick = () => { it.qty--; if (it.qty < 1) cart.splice(idx, 1); save(); render(); };
+        li.querySelector('[data-a="+"]').onclick = () => { it.qty = Math.min(10, it.qty + 1); save(); render(); };
+        li.querySelector('.ci-del').onclick = () => { cart.splice(idx, 1); save(); render(); };
+        list.appendChild(li);
+      });
+      const t = totals();
+      document.getElementById('cartCount').textContent = t.n;
+      document.getElementById('cartCount').classList.toggle('on', t.n > 0);
+      document.getElementById('cartEmpty').hidden = t.n > 0;
+      document.getElementById('cartTotals').hidden = t.n === 0;
+      document.getElementById('checkout').hidden = t.n === 0;
+      document.getElementById('tSub').textContent = eur(t.sub);
+      document.getElementById('tDuo').textContent = '− ' + eur(t.duo);
+      document.getElementById('tDuoRow').hidden = t.duo === 0;
+      document.getElementById('tTotal').textContent = eur(t.total);
+    }
+
+    document.getElementById('addBtn').addEventListener('click', () => {
+      const msg = document.getElementById('addMsg');
+      if (!sel.size) { msg.textContent = 'Choisissez une taille.'; msg.className = 'add-msg err'; return; }
+      const img = swatches.find(s => s.dataset.color === sel.color).dataset.img;
+      const ex = cart.find(i => i.color === sel.color && i.size === sel.size);
+      if (ex) ex.qty = Math.min(10, ex.qty + sel.qty); else cart.push({ color: sel.color, size: sel.size, qty: sel.qty, img });
+      save(); render();
+      sel.qty = 1; qtyVal.textContent = 1;
+      msg.textContent = 'Ajouté au panier.'; msg.className = 'add-msg ok';
+      openCart();
+    });
+
+    const cartEl = document.getElementById('cart'), overlay = document.getElementById('cartOverlay');
+    function openCart() { cartEl.classList.add('open'); cartEl.setAttribute('aria-hidden', 'false'); overlay.hidden = false; document.body.style.overflow = 'hidden'; }
+    function closeCart() { if (!document.getElementById('cartDone').hidden) { document.getElementById('cartDone').hidden = true; document.getElementById('cartBody').hidden = false; render(); } cartEl.classList.remove('open'); cartEl.setAttribute('aria-hidden', 'true'); overlay.hidden = true; document.body.style.overflow = ''; }
+    document.getElementById('cartBtn').onclick = openCart;
+    document.getElementById('cartClose').onclick = closeCart;
+    overlay.onclick = closeCart;
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+    /* ---------- validation de la commande ---------- */
+    const form = document.getElementById('checkout');
+    form.querySelectorAll('input[name="delivery"]').forEach(r => r.addEventListener('change', () => {
+      document.getElementById('addrBlock').hidden = form.delivery.value !== 'Envoi postal';
+    }));
+    if (SHOP.paymentUrl) {
+      document.getElementById('checkoutBtn').textContent = 'Payer ma commande';
+      document.getElementById('checkoutNote').textContent = 'Paiement sécurisé sur la plateforme de paiement.';
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const err = document.getElementById('formErr');
+      const f = Object.fromEntries(new FormData(form));
+      if (!f.name.trim()) { err.textContent = 'Indiquez votre nom.'; return; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) { err.textContent = 'Indiquez un e-mail valide.'; return; }
+      if (f.delivery === 'Envoi postal' && !f.address.trim()) { err.textContent = 'Indiquez votre adresse postale.'; return; }
+      err.textContent = '';
+      const t = totals();
+      const ref = 'HM-' + new Date().toISOString().slice(2, 10).replace(/-/g, '') + '-' + Math.random().toString(36).slice(2, 6).toUpperCase();
+      const lines = cart.map(i => `- ${i.qty} × Tee-shirt Noir sur Blanc · ${i.color} · taille ${i.size}`).join('\n');
+      const recap =
+`Précommande ${ref}
+
+${lines}
+
+Sous-total : ${eur(t.sub)}${t.duo ? `\nOffre duo : − ${eur(t.duo)}` : ''}
+Total : ${eur(t.total)}
+
+Remise : ${f.delivery}${f.delivery === 'Envoi postal' ? `\nAdresse : ${f.address}` : ''}
+Nom : ${f.name}
+E-mail : ${f.email}${f.phone ? `\nTéléphone : ${f.phone}` : ''}${f.note ? `\nMessage : ${f.note}` : ''}`;
+      const mailto = `mailto:${SHOP.email}?subject=${encodeURIComponent('Précommande merch HOURIAA ' + ref)}&body=${encodeURIComponent(recap)}`;
+      document.getElementById('recap').textContent = recap;
+      document.getElementById('mailAgain').href = mailto;
+      document.getElementById('cartBody').hidden = true;
+      document.getElementById('cartDone').hidden = false;
+      cart = []; save(); document.getElementById('cartCount').textContent = 0; document.getElementById('cartCount').classList.remove('on');
+      if (SHOP.paymentUrl) { window.open(SHOP.paymentUrl, '_blank', 'noopener'); }
+      else { window.location.href = mailto; }
+    });
+    document.getElementById('copyRecap').onclick = async () => {
+      try { await navigator.clipboard.writeText(document.getElementById('recap').textContent); document.getElementById('copyRecap').textContent = 'Copié ✓'; }
+      catch (e) { document.getElementById('copyRecap').textContent = 'Sélectionnez le texte pour le copier'; }
+    };
+
+    render();
+  </script>
+</body>
+</html>
