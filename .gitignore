@@ -3,3 +3,6 @@
 *.psb
 *.psd
 node_modules/
+
+# vidéos web compressées (servies par le site)
+!videos/web/*.mp4
