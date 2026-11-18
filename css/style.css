@@ -1265,3 +1265,99 @@ footer p {
 }
 .youtube-section { border-top: 1px solid rgba(201, 150, 63, 0.12); }
 .singles-grid { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
+
+/* ===== V4 : citation, sur scène, moments forts, presse, clip ===== */
+.quote-band {
+  background: var(--black);
+  padding: 5rem 5vw 5.5rem;
+  border-top: 1px solid rgba(201, 150, 63, 0.15);
+  position: relative;
+}
+.quote-band-text {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: var(--font-title);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1.45;
+  color: var(--white);
+}
+.quote-band-text cite {
+  display: block;
+  margin-top: 1.4rem;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.bio-section .sub-title {
+  font-family: var(--font-title);
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+.stage-block, .highlights, .press { margin-top: 4.5rem; max-width: 980px; }
+.stage-text { font-size: 1rem; line-height: 1.8; color: #333; max-width: 720px; }
+.highlights-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+.highlights-list li {
+  padding: 1.3rem 1.2rem 1.3rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.hl-year { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.25em; color: var(--gold-dark); }
+.hl-name { font-family: var(--font-title); font-size: 1.25rem; font-weight: 600; line-height: 1.25; color: var(--black); }
+.hl-name small { display: block; font-family: var(--font-body); font-size: 0.72rem; font-weight: 500; color: var(--gold-dark); margin-top: 0.2rem; }
+.press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.press-card {
+  margin: 0;
+  padding: 1.6rem 1.5rem;
+  border-left: 2px solid var(--gold);
+  background: var(--gray-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.press-card blockquote {
+  font-family: var(--font-title);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  color: var(--black);
+}
+.press-card figcaption { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: #777; }
+.press-card--link { transition: background 0.25s ease, transform 0.25s ease; }
+.press-card--link blockquote { font-style: normal; font-weight: 600; }
+.press-card--link:hover { background: #efe6d3; transform: translateY(-2px); }
+.press-card--link:hover figcaption { color: var(--gold-dark); }
+
+.contact-phone { margin-top: -1.6rem; }
+
+.clip-featured { margin-bottom: 3.5rem; }
+.clip-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.clip-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: #000;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+}
+.clip-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+@media (max-width: 900px) {
+  .highlights-list { grid-template-columns: repeat(2, 1fr); }
+  .press-grid { grid-template-columns: 1fr; }
+}
