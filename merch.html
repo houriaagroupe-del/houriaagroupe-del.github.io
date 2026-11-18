@@ -90,22 +90,14 @@
       <div class="product-info fade-in-right">
         <span class="product-badge">Précommande</span>
         <h2 class="product-name">Tee-shirt «&nbsp;Noir sur Blanc&nbsp;»</h2>
-        <p class="product-price"><span>30&nbsp;€</span> <small>· 2 tee-shirts = 50&nbsp;€</small></p>
+        <p class="product-price"><span id="pPrice">30&nbsp;€</span> <small id="pDuo">· 2 tee-shirts = 50&nbsp;€</small></p>
+        <p class="stock-note" id="stockNote"></p>
 
         <p class="opt-label">Couleur&nbsp;: <strong id="colorName">Noir</strong></p>
-        <div class="swatches" id="swatches">
-          <button class="swatch active" data-color="Noir" data-img="images/merch/tee_noir.jpg" style="--c:#111" aria-label="Noir"></button>
-          <button class="swatch" data-color="Écru" data-img="images/merch/tee_ecru.jpg" style="--c:#e3cdb4" aria-label="Écru"></button>
-          <button class="swatch" data-color="Blanc" data-img="images/merch/tee_blanc.jpg" style="--c:#f6f6f4" aria-label="Blanc"></button>
-          <button class="swatch" data-color="Prune" data-img="images/merch/tee_prune.jpg" style="--c:#3a1c33" aria-label="Prune"></button>
-        </div>
+        <div class="swatches" id="swatches"></div>
 
         <p class="opt-label">Taille&nbsp;: <strong id="sizeName">—</strong></p>
-        <div class="sizes" id="sizes">
-          <button class="size" data-size="S">S</button>
-          <button class="size" data-size="M">M</button>
-          <button class="size" data-size="L">L</button>
-        </div>
+        <div class="sizes" id="sizes"></div>
         <p class="size-note">Coupe oversize unisexe, épaules tombantes.</p>
 
         <div class="add-row">
@@ -155,11 +147,13 @@
         <details open><summary>Comment se passe la commande&nbsp;?</summary>
           <p>Ajoutez vos tee-shirts au panier, choisissez le mode de remise et envoyez votre précommande. Vous recevez ensuite un e-mail de confirmation avec les modalités de paiement. Le paiement en ligne sécurisé sera bientôt disponible directement sur cette page.</p></details>
         <details><summary>Retrait et livraison</summary>
-          <p>Retrait gratuit à Toulouse ou remise en main propre lors d'un concert. L'envoi postal est possible&nbsp;: les frais vous sont indiqués par e-mail avant paiement.</p></details>
+          <p id="faqShip">Retrait gratuit à Toulouse ou remise en main propre lors d'un concert. Envoi postal en France&nbsp;: forfait indiqué dans le panier.</p></details>
         <details><summary>L'offre duo</summary>
-          <p>Deux tee-shirts achetés ensemble&nbsp;: 50&nbsp;€ au lieu de 60&nbsp;€. La réduction s'applique automatiquement dans le panier, par paire.</p></details>
+          <p id="faqDuo">Deux tee-shirts achetés ensemble&nbsp;: 50&nbsp;€ au lieu de 60&nbsp;€. La réduction s'applique automatiquement dans le panier, par paire.</p></details>
         <details><summary>Échange et rétractation</summary>
           <p>Pour un achat à distance, vous disposez de 14 jours après réception pour changer d'avis. Un échange de taille est possible selon les stocks&nbsp;: écrivez-nous.</p></details>
+        <details><summary>Vendeur &amp; mentions</summary>
+          <p id="sellerInfo"></p></details>
         <details><summary>Contact</summary>
           <p><a href="mailto:Houria.laamimi@gmail.com">Houria.laamimi@gmail.com</a> · <a href="tel:+33652335320">06 52 33 53 20</a></p></details>
       </div>
@@ -185,14 +179,13 @@
       <div class="cart-totals" id="cartTotals">
         <p><span>Sous-total</span><span id="tSub">0 €</span></p>
         <p class="t-duo" id="tDuoRow"><span>Offre duo</span><span id="tDuo">0 €</span></p>
+        <p id="tShipRow"><span>Livraison</span><span id="tShip">0 €</span></p>
         <p class="t-total"><span>Total</span><span id="tTotal">0 €</span></p>
       </div>
 
       <form class="checkout" id="checkout" novalidate>
         <p class="opt-label">Remise</p>
-        <label class="radio"><input type="radio" name="delivery" value="Retrait à Toulouse" checked /> Retrait à Toulouse (gratuit)</label>
-        <label class="radio"><input type="radio" name="delivery" value="Remise lors d'un concert" /> Lors d'un concert (gratuit)</label>
-        <label class="radio"><input type="radio" name="delivery" value="Envoi postal" /> Envoi postal (frais indiqués par e-mail)</label>
+        <div id="deliveryOpts"></div>
         <div class="addr" id="addrBlock" hidden>
           <input name="address" placeholder="Adresse postale complète" autocomplete="street-address" />
         </div>
@@ -219,15 +212,32 @@
 
   <script>
     /* ================= CONFIGURATION BOUTIQUE =================
-       price / duoPrice : prix en euros
-       paymentUrl : à remplir quand le paiement en ligne est prêt
-         (lien HelloAsso Boutique de Win'As, ou Stripe Payment Link).
-         Vide = mode précommande par e-mail. */
+       Tout se règle ici. Modifier une valeur suffit, le reste de la page suit. */
     const SHOP = {
       email: 'Houria.laamimi@gmail.com',
-      price: 30,
-      duoPrice: 50,
-      paymentUrl: ''
+      productName: 'Tee-shirt Noir sur Blanc',
+      price: 30,                     // prix unitaire (€)
+      duo: { enabled: true, price: 50 }, // offre par paire ; enabled:false pour la couper
+      sizes: ['S', 'M', 'L', 'XL'],
+      colors: [
+        // stock : null = pas de limite affichée ; un nombre = pièces restantes (0 = épuisé)
+        { name: 'Noir',  hex: '#111111', img: 'images/merch/tee_noir.jpg',  stock: null },
+        { name: 'Écru',  hex: '#e3cdb4', img: 'images/merch/tee_ecru.jpg',  stock: null },
+        { name: 'Blanc', hex: '#f6f6f4', img: 'images/merch/tee_blanc.jpg', stock: null },
+        { name: 'Prune', hex: '#3a1c33', img: 'images/merch/tee_prune.jpg', stock: null }
+      ],
+      lowStockAt: 3,                 // affiche « plus que X » sous ce seuil
+      delivery: [
+        { id: 'toulouse', label: 'Retrait à Toulouse', fee: 0 },
+        { id: 'concert',  label: "Remise lors d'un concert", fee: 0 },
+        { id: 'poste',    label: 'Envoi postal (France)', fee: 5.90, freeFrom: 3, address: true }
+      ],
+      seller: {
+        name: "Association Win'As",
+        address: '12 rue de Bigorre, 31100 Toulouse',
+        email: 'Houria.laamimi@gmail.com'
+      },
+      paymentUrl: ''                 // lien HelloAsso Boutique ou Stripe ; vide = précommande par e-mail
     };
 
     /* ---------- menu ---------- */
@@ -249,9 +259,32 @@
     /* ---------- fiche produit ---------- */
     const productImg = document.getElementById('productImg');
     const thumbs = [...document.querySelectorAll('#productThumbs button')];
+    const eur = n => n.toLocaleString('fr-FR', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }) + ' €';
+    const swWrap = document.getElementById('swatches'), szWrap = document.getElementById('sizes');
+    SHOP.colors.forEach((c, i) => {
+      const b = document.createElement('button');
+      b.className = 'swatch' + (i === 0 ? ' active' : '') + (c.stock === 0 ? ' soldout' : '');
+      b.dataset.color = c.name; b.dataset.img = c.img; b.style.setProperty('--c', c.hex);
+      b.setAttribute('aria-label', c.name + (c.stock === 0 ? ' (épuisé)' : ''));
+      swWrap.appendChild(b);
+    });
+    SHOP.sizes.forEach(s => {
+      const b = document.createElement('button'); b.className = 'size'; b.dataset.size = s; b.textContent = s; szWrap.appendChild(b);
+    });
+    document.getElementById('pPrice').textContent = eur(SHOP.price);
+    document.getElementById('pDuo').textContent = SHOP.duo.enabled ? `· 2 tee-shirts = ${eur(SHOP.duo.price)}` : '';
+    document.querySelectorAll('.shop-duo').forEach(el => el.hidden = !SHOP.duo.enabled);
+    if (!SHOP.duo.enabled) { const d = document.getElementById('faqDuo'); d.closest('details').hidden = true; }
     const swatches = [...document.querySelectorAll('.swatch')];
     const sizes = [...document.querySelectorAll('.size')];
-    let sel = { color: 'Noir', size: null, qty: 1 };
+    let sel = { color: SHOP.colors[0].name, size: null, qty: 1 };
+    function updateStock() {
+      const c = SHOP.colors.find(x => x.name === sel.color), n = document.getElementById('stockNote');
+      const add = document.getElementById('addBtn');
+      if (c.stock === 0) { n.textContent = 'Épuisé dans cette couleur'; n.className = 'stock-note out'; add.disabled = true; }
+      else if (c.stock != null && c.stock <= SHOP.lowStockAt) { n.textContent = `Plus que ${c.stock} pièce${c.stock > 1 ? 's' : ''} dans cette couleur`; n.className = 'stock-note low'; add.disabled = false; }
+      else { n.textContent = ''; n.className = 'stock-note'; add.disabled = false; }
+    }
 
     function showImg(src) {
       productImg.src = src;
@@ -261,7 +294,7 @@
     swatches.forEach(s => s.addEventListener('click', () => {
       swatches.forEach(x => x.classList.remove('active')); s.classList.add('active');
       sel.color = s.dataset.color; document.getElementById('colorName').textContent = sel.color;
-      showImg(s.dataset.img);
+      showImg(s.dataset.img); updateStock();
     }));
     sizes.forEach(s => s.addEventListener('click', () => {
       sizes.forEach(x => x.classList.remove('active')); s.classList.add('active');
@@ -276,12 +309,20 @@
     let cart = [];
     try { cart = JSON.parse(localStorage.getItem('houriaa_cart') || '[]'); } catch (e) { cart = []; }
     const save = () => { try { localStorage.setItem('houriaa_cart', JSON.stringify(cart)); } catch (e) {} };
-    const eur = n => n.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' €';
     const count = () => cart.reduce((a, i) => a + i.qty, 0);
+    const form = document.getElementById('checkout');
+    const delWrap = document.getElementById('deliveryOpts');
+    SHOP.delivery.forEach((d, i) => {
+      const fee = d.fee ? `${eur(d.fee)}${d.freeFrom ? `, offert dès ${d.freeFrom} pièces` : ''}` : 'gratuit';
+      delWrap.insertAdjacentHTML('beforeend', `<label class="radio"><input type="radio" name="delivery" value="${d.id}" ${i === 0 ? 'checked' : ''} /> ${d.label} (${fee})</label>`);
+    });
+    const curDelivery = () => SHOP.delivery.find(d => d.id === (form.delivery ? form.delivery.value : SHOP.delivery[0].id)) || SHOP.delivery[0];
     function totals() {
       const n = count(), sub = n * SHOP.price;
-      const total = Math.floor(n / 2) * SHOP.duoPrice + (n % 2) * SHOP.price;
-      return { n, sub, duo: sub - total, total };
+      const goods = SHOP.duo.enabled ? Math.floor(n / 2) * SHOP.duo.price + (n % 2) * SHOP.price : sub;
+      const d = curDelivery();
+      const ship = n && d.fee && !(d.freeFrom && n >= d.freeFrom) ? d.fee : 0;
+      return { n, sub, duo: sub - goods, ship, total: goods + ship, d };
     }
 
     function render() {
@@ -291,7 +332,7 @@
         const li = document.createElement('li');
         li.className = 'cart-item';
         li.innerHTML = `<img src="${it.img}" alt="" />
-          <div class="ci-info"><strong>Tee-shirt Noir sur Blanc</strong><span>${it.color} · ${it.size}</span>
+          <div class="ci-info"><strong>${SHOP.productName}</strong><span>${it.color} · ${it.size}</span>
             <div class="qty qty-sm"><button data-a="-" aria-label="Moins">−</button><span>${it.qty}</span><button data-a="+" aria-label="Plus">+</button></div></div>
           <div class="ci-right"><span>${eur(it.qty * SHOP.price)}</span><button class="ci-del" aria-label="Retirer">Retirer</button></div>`;
         li.querySelector('[data-a="-"]').onclick = () => { it.qty--; if (it.qty < 1) cart.splice(idx, 1); save(); render(); };
@@ -309,6 +350,8 @@
       document.getElementById('tDuo').textContent = '− ' + eur(t.duo);
       document.getElementById('tDuoRow').hidden = t.duo === 0;
       document.getElementById('tTotal').textContent = eur(t.total);
+      document.getElementById('tShipRow').hidden = !(t.d.fee);
+      document.getElementById('tShip').textContent = t.ship ? eur(t.ship) : 'offerte';
     }
 
     document.getElementById('addBtn').addEventListener('click', () => {
@@ -332,9 +375,8 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
 
     /* ---------- validation de la commande ---------- */
-    const form = document.getElementById('checkout');
     form.querySelectorAll('input[name="delivery"]').forEach(r => r.addEventListener('change', () => {
-      document.getElementById('addrBlock').hidden = form.delivery.value !== 'Envoi postal';
+      document.getElementById('addrBlock').hidden = !curDelivery().address; render();
     }));
     if (SHOP.paymentUrl) {
       document.getElementById('checkoutBtn').textContent = 'Payer ma commande';
@@ -347,20 +389,21 @@
       const f = Object.fromEntries(new FormData(form));
       if (!f.name.trim()) { err.textContent = 'Indiquez votre nom.'; return; }
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) { err.textContent = 'Indiquez un e-mail valide.'; return; }
-      if (f.delivery === 'Envoi postal' && !f.address.trim()) { err.textContent = 'Indiquez votre adresse postale.'; return; }
+      const dl = curDelivery();
+      if (dl.address && !f.address.trim()) { err.textContent = 'Indiquez votre adresse postale.'; return; }
       err.textContent = '';
       const t = totals();
       const ref = 'HM-' + new Date().toISOString().slice(2, 10).replace(/-/g, '') + '-' + Math.random().toString(36).slice(2, 6).toUpperCase();
-      const lines = cart.map(i => `- ${i.qty} × Tee-shirt Noir sur Blanc · ${i.color} · taille ${i.size}`).join('\n');
+      const lines = cart.map(i => `- ${i.qty} × ${SHOP.productName} · ${i.color} · taille ${i.size}`).join('\n');
       const recap =
 `Précommande ${ref}
 
 ${lines}
 
-Sous-total : ${eur(t.sub)}${t.duo ? `\nOffre duo : − ${eur(t.duo)}` : ''}
+Sous-total : ${eur(t.sub)}${t.duo ? `\nOffre duo : − ${eur(t.duo)}` : ''}${dl.fee ? `\nLivraison : ${t.ship ? eur(t.ship) : 'offerte'}` : ''}
 Total : ${eur(t.total)}
 
-Remise : ${f.delivery}${f.delivery === 'Envoi postal' ? `\nAdresse : ${f.address}` : ''}
+Remise : ${dl.label}${dl.address ? `\nAdresse : ${f.address}` : ''}
 Nom : ${f.name}
 E-mail : ${f.email}${f.phone ? `\nTéléphone : ${f.phone}` : ''}${f.note ? `\nMessage : ${f.note}` : ''}`;
       const mailto = `mailto:${SHOP.email}?subject=${encodeURIComponent('Précommande merch HOURIAA ' + ref)}&body=${encodeURIComponent(recap)}`;
@@ -377,6 +420,10 @@ E-mail : ${f.email}${f.phone ? `\nTéléphone : ${f.phone}` : ''}${f.note ? `\nM
       catch (e) { document.getElementById('copyRecap').textContent = 'Sélectionnez le texte pour le copier'; }
     };
 
+    const post = SHOP.delivery.find(d => d.address);
+    if (post) document.getElementById('faqShip').textContent = `Retrait gratuit à Toulouse ou remise en main propre lors d'un concert. Envoi postal en France : ${eur(post.fee)}${post.freeFrom ? `, offert dès ${post.freeFrom} pièces` : ''}.`;
+    document.getElementById('sellerInfo').innerHTML = `Vendeur : ${SHOP.seller.name}, ${SHOP.seller.address}. Contact : <a href="mailto:${SHOP.seller.email}">${SHOP.seller.email}</a>. Prix en euros. Produits fabriqués à la commande (précommande) : la date de retrait ou d'envoi est confirmée par e-mail.`;
+    updateStock();
     render();
   </script>
 </body>

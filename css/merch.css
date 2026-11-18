@@ -147,3 +147,8 @@
   .soon-card:not(.soon-card--wide) { aspect-ratio: 2 / 3; }
   .soon-card img { height: 100%; }
 }
+.stock-note { min-height: 1rem; font-size: 0.82rem; margin-top: 0.4rem; }
+.stock-note.low { color: var(--gold-dark); } .stock-note.out { color: #b3261e; }
+.swatch.soldout { opacity: 0.35; position: relative; }
+.add-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.merch-page [hidden] { display: none !important; }
