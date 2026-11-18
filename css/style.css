@@ -224,7 +224,7 @@ a {
 
 .hero-name {
   font-family: var(--font-title);
-  font-size: clamp(5rem, 15vw, 14rem);
+  font-size: clamp(3rem, 15vw, 14rem);
   font-weight: 300;
   letter-spacing: 0.08em;
   color: var(--white);
