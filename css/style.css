@@ -1428,3 +1428,9 @@ footer p {
 
 .support-cta { margin-bottom: 1.8rem; }
 @media (min-width: 1000px) { .verticals-grid { grid-template-columns: repeat(5, 1fr); } }
+
+.video-card-label span { display: block; margin-top: 0.15rem; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.15em; }
+.video-card-label { color: rgba(255,255,255,0.85); }
+.video-card--wide { grid-column: span 2; }
+.video-card--wide video { aspect-ratio: auto; height: 100%; object-fit: contain; flex: 1; }
+@media (max-width: 500px) { .video-card--wide { grid-column: 1 / -1; } .video-card--wide video { aspect-ratio: 16/9; height: auto; } }
