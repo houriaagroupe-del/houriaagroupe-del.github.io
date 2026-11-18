@@ -1425,3 +1425,6 @@ footer p {
 }
 
 .gallery-item img[src*="zenith_6"], .gallery-item img[src*="zenith_2"] { object-position: center 18%; }
+
+.support-cta { margin-bottom: 1.8rem; }
+@media (min-width: 1000px) { .verticals-grid { grid-template-columns: repeat(5, 1fr); } }
